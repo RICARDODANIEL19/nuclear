@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="/IMAGESS/favicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Reacciones Nucleares</title>
+    <link rel="stylesheet" href="/CSS/estilosnucleares.css">
+    <div id="logos-container">
+        <img src="/IMAGESS/logotipos-06.png " alt="Logo 1" class="logo">
+        <img src="/IMAGESS/logo_fime.png" alt="Logo 2" class="logo">
+    </div>
+    <style>
+        #centroColision {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        #imagenColision {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Desplegable</title>
+    <link rel="stylesheet" href="/CSS/estilosnucleares.css">
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu">
+            <div class="menu-header">Menú</div>
+            <ul>
+                <li><a href="/others html/INFORMACIÓN SOBRE EL TEMA.HTML">Reacciones Nucleares</a></li>
+                <li><a href="/others html/equipo6.html">Equipo 6 Participantes</a></li>
+            </ul>
+        </div>
+    </div>
+<body>
+    <div id="titulo">
+        <h1>Reacciones Nucleares</h1>
+    </div>
+    <div id="contenedor-simulacion">
+        <div id="simulador">
+            <!-- Contenido del simulador aquí -->
+            <div id="fondo"></div>
+            <div id="escenario">
+                <div id="proyectil" class="particula proyectil"></div>
+                <div id="blanco" class="particula blanco"></div>
+                <div id="particulaProducto" class="particula producto"></div>
+                <div id="nuevoNucleo" class="particula nucleo"></div>
+            </div>
+        </div>
+
+        <!-- Agregamos la imagen de colisión -->
+        <div id="centroColision">
+            <img src="/IMAGESS/boom2.jpg" alt="Colisión" id="imagenColision">
+        </div>
+    </div>
+    <div id="controles">
+        <button id="iniciarColision">Iniciar Colisión</button>
+        <button id="nuevaReaccion">Nueva Reacción</button>
+    </div>
+    <form id="formulario">
+        <label for="masaInicial">Masa Inicial (kg):</label>
+        <input type="number" id="masaInicial" step="0.01" required>
+        <label for="masaFinal">Masa Final (kg):</label>
+        <input type="number" id="masaFinal" step="0.01" required>
+        <button type="submit">Calcular Energía Liberada</button>
+    </form>
+    <div id="resultado"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="/JS/javanucleares.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const proyectil = document.getElementById('proyectil');
+            const blanco = document.getElementById('blanco');
+            const particulaProducto = document.getElementById('particulaProducto');
+            const nuevoNucleo = document.getElementById('nuevoNucleo');
+            const centroColision = document.getElementById('centroColision');
+
+            function iniciarColisionAnimada() {
+                const posicionFinalProyectil = blanco.offsetLeft; // Posición final del proyectil
+                const contenedorSimulacion = document.getElementById('contenedor-simulacion');
+                const contenedorWidth = contenedorSimulacion.offsetWidth;
+                const contenedorHeight = contenedorSimulacion.offsetHeight;
+                const particulaWidth = particulaProducto.offsetWidth;
+                const particulaHeight = particulaProducto.offsetHeight;
+
+                anime({
+                    targets: proyectil,
+                    left: posicionFinalProyectil,
+                    duration: 2000,
+                    easing: 'easeInOutQuad',
+                    complete: function() {
+                        proyectil.style.display = 'none';
+                        blanco.style.visibility = 'hidden';
+
+                        anime({
+                            targets: particulaProducto,
+                            left: contenedorWidth - particulaWidth,
+                            top: 0,
+                            duration: 2000,
+                            easing: 'easeInOutQuad'
+                        });
+
+                        anime({
+                            targets: nuevoNucleo,
+                            left: contenedorWidth - particulaWidth,
+                            top: contenedorHeight - particulaHeight,
+                            duration: 2000,
+                            easing: 'easeInOutQuad',
+                            complete: function() {
+                                // Mostrar la imagen de colisión en el centro del área de simulación
+                                centroColision.style.display = 'block';
+                            }
+                        });
+                    }
+                });
+            }
+
+            const iniciarColisionBtn = document.getElementById('iniciarColision');
+            iniciarColisionBtn.addEventListener('click', iniciarColisionAnimada);
+
+            const nuevaReaccionBtn = document.getElementById('nuevaReaccion');
+            nuevaReaccionBtn.addEventListener('click', function() {
+                location.reload();
+            });
+        });
+    </script>
+<audio id="sonidoColision" src="/sonido/ytmp3free.cc_big-explosion-sound-effect-youtubemp3free.org (mp3cut.net).mp3"></audio>
+<audio id="sonidoradiacion" src="/sonido/ytmp3free.cc_geiger-counter-sound-youtubemp3free.org (mp3cut.net).mp3"></audio>
+</body>
+
+</html>

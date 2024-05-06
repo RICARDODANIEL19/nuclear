@@ -1,0 +1,184 @@
+#titulo {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#titulo h1 {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+body {
+    background: linear-gradient(135deg, #000000dc 0%, #0818ff 50%, #000000 100%);
+    margin: 0;
+    padding: 0;
+}
+
+#contenedor-simulacion {
+    width: 80%;
+    border: 1px solid #000000;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+}
+
+.particula {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+#proyectil {
+    background-color: rgb(255, 0, 0);
+    left: 10%;
+    top: calc(50% - 10px);
+}
+
+#blanco {
+    background-color: rgb(232, 236, 15);
+    left: 45%;
+    top: calc(50% - 10px);
+}
+
+#particulaProducto {
+    background-color: rgb(228, 1, 179);
+    left: 45%;
+    top: calc(50% - 10px);
+}
+
+#nuevoNucleo {
+    background-color: rgb(251, 255, 1);
+    left: 45%;
+    top: calc(50% - 10px);
+}
+
+#titulo {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.particula {
+    position: absolute;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+#titulo h1 {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#contenedor-simulacion {
+    width: 80%;
+    border: 1px solid #000000;
+    margin: 0 auto;
+    padding: 2px;
+    position: relative;
+}
+
+#simulador {
+    background-color: #dadada;
+    height: 400px;
+    position: relative;
+}
+
+#controles {
+    text-align: center;
+    margin-top: 20px;
+}
+.particula {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.5), 0 0 80px rgba(255, 255, 255, 0.5);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 150px;
+}
+
+.menu-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    border-bottom: 1px solid #ccc;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+}
+
+a:hover {
+    background-color: #ccc;
+}
+/* Estilos para los logos */
+#logos-container {
+    position: absolute;
+    top: 20px; /* Ajusta esta distancia según sea necesario */
+    left: 20px; /* Ajusta esta distancia según sea necesario */
+    z-index: 999; /* Asegura que estén en la parte superior */
+}
+
+.logo {
+    width: 200px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+    margin-right: 10px; /* Espacio entre los logos */
+}
